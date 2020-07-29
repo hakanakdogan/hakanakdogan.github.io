@@ -39,9 +39,14 @@ function filterTodos(e){
 
         if(text.indexOf(targetValue)===-1){
             element.setAttribute("style" , "opacity : 0.2;");   
+
         }
         else{
             element.setAttribute("style" , "opacity: 1;");
+            element.setAttribute("style" , "order: -1;");
+            
+            
+            
         }
         
         
@@ -125,6 +130,9 @@ if(newTodo === ""){
 else if (control(newTodo)){
     showAlert("warning" , "Cannot add a todo more than once.");
 }
+else if(newTodo.length >= 50){
+    showAlert("danger" , "Todo 50 karakterden fazla olamaz");
+}
 else{
     addToUI(newTodo);
     addTodoToStorage(newTodo);
@@ -197,6 +205,10 @@ function addTodoToStorage(newTodo){
     
      return val;
  }
+
+
+
+
 
 
 
