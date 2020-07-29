@@ -130,7 +130,7 @@ if(newTodo === ""){
 else if (control(newTodo)){
     showAlert("warning" , "Cannot add a todo more than once.");
 }
-else if(newTodo.length >= 50){
+else if(newTodo.length > 50){
     showAlert("danger" , "Todo 50 karakterden fazla olamaz");
 }
 else{
