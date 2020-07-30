@@ -64,6 +64,7 @@ function deleteEverything(e){
     //      }
     //      showAlert("success" , "Tüm TODO'lar başarıyla silindi");
     //  }
+    if(a){
     let count = todoList.childElementCount;
     for(let i = 0 ; i<count ; i++){
         console.log(i);
@@ -74,10 +75,12 @@ function deleteEverything(e){
     
     localStorage.removeItem("todos");
 }
+}
 
 function deleteTodo(e){
     let target = e.target.parentElement.parentElement;
     if(e.target.className === "fa fa-remove"){
+       
        target.remove();
         deleteTodoFromStorage(target.textContent);
        showAlert("primary" ,"Todo removed successfully.");
@@ -130,7 +133,7 @@ if(newTodo === ""){
 else if (control(newTodo)){
     showAlert("warning" , "Cannot add a todo more than once.");
 }
-else if(newTodo.length > 50){
+else if(newTodo.length >= 50){
     showAlert("danger" , "Todo 50 karakterden fazla olamaz");
 }
 else{
@@ -153,6 +156,7 @@ function addToUI(newTodo){
 const listItem = document.createElement("li");
 listItem.className = "list-group-item d-flex justify-content-between";
 listItem.appendChild(document.createTextNode(newTodo));
+
 const link = document.createElement("a");
 link.href = "#";
 link.className = "delete-item";
@@ -205,6 +209,9 @@ function addTodoToStorage(newTodo){
     
      return val;
  }
+
+
+
 
 
 
